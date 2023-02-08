@@ -1,11 +1,15 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-     
+    <div className="bg-gray-800">
+    <div className="h-16 px-8 flex items-center">
+      <p className=" text-white font-bold">
+        Employee Management System
+      </p>
     </div>
+  </div>
   );
 }
 
