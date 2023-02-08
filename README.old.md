@@ -15,7 +15,7 @@ Ex1:
  let sum2 = (a,b) => a + b
 
 
-In normal function it already create a variable named sum but in arrow functions we have to create it manually.(sum2 as we no longer have the function keyword)
+In normal function it already creates a variable named sum but in arrow functions we have to create it manually.(sum2 as we no longer have the function keyword)
 Anything after the arrow is asuumed to be returned.
 
 
