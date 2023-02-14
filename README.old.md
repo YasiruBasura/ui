@@ -56,7 +56,7 @@ IF you get this fck all...!!
 
 class Person{
     constructor(name){
-        this.name = name
+        this.name = name 
     }
 
 
@@ -86,7 +86,7 @@ console.log(this.log)
 
 JAVA TIPS !!!!
 ADDITIONAL => Every time we call an object it calls/creates the constructor automatically.When we want to perform an operation always do it inside a method.!!
-"This" keyword always refers to the object. 
+"This" keyword always refers to the object. Reffering to an instance variable. 
 
 
 To make a variable in js we use,
