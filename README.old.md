@@ -239,6 +239,12 @@ box-sizing: border-box;
 
 --------------------------------------------------------------------
 
+"const" in java script refers to constant variable
+
+{Try} , {Catch} , and {Finally} statements in javascript.(Eror handling in javascript)
+
+
+
 
 
 
