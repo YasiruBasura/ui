@@ -56,7 +56,7 @@ IF you get this fck all...!!
 
 class Person{
     constructor(name){
-        this.name = name 
+        this.name = name  
     }
 
 
@@ -70,10 +70,11 @@ printNameFunction(){
         console.log('Function: '+ this.name)}, 100)
     }
 
+  }
 }
 
 
-let person = new Person('Bob')
+let person = new Person('Bob')          //the variables with the "let" keyword cannot be redeclared
 person.printNameArrow()
 person.printNameFunction()
 console.log(this.log)
@@ -221,7 +222,7 @@ Ex:
   padding: 50px;
   border: 1px solid red;
   box-sizing: border-box;
-box-sizing: border-box;
+
 
  }
 </style>
