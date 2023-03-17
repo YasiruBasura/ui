@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import EmployeeService from '../services/EmployeeService';
 
 const AddEmployee = () => {
@@ -11,6 +12,8 @@ const [employee, setEmployee] = useState({
       //setting the initial values
 });
 
+const navigate=useNavigate();
+
 const handleChange=(e) =>{
   const value=e.target.value; //the value which are getting
   setEmployee({...employee,[e.target.name]:value});   //form this the update in your input field the same will be updated to the state as well.
@@ -20,13 +23,23 @@ const saveEmployee=(e) =>{ //this function is nothing but taking the event as in
   e.preventDefault();       //this will disable the refreshing of the page
   EmployeeService.saveEmployee(employee).then((response) =>{
       console.log(response);
+      navigate("/employeeList"); //we have defined this /employeeList in our router in app.js
 
   }).catch((Error)=>{
     console.log(Error);
   });
 };
 
-
+const reset =(e)=>{
+  e.preventDefault(); //because we dont want to refresh the page when using 'clear' button
+  setEmployee({
+    id:"",
+    firstName:"",
+    lastName:"",
+    emailId:"",
+  //setting the initial values
+});
+}
 
   return (
   <div className='flex max-w-xl mx-auto shadow border-b'>
@@ -80,7 +93,9 @@ const saveEmployee=(e) =>{ //this function is nothing but taking the event as in
         <button onClick={saveEmployee} className="rounded text-white font-semibold bg-green-400 py-2 px-2 hover:bg-green-700">
           Save
         </button>
-        <button className="rounded text-white font-semibold bg-red-400 py-2 px-2 hover:bg-red-700">
+        <button 
+        onClick={reset}
+        className="rounded text-white font-semibold bg-red-400 py-2 px-2 hover:bg-red-700">
           Clear
         </button>
           
