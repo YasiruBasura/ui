@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import EmployeeService from '../services/EmployeeService';
+import Employee from './Employee';
 
 
 const EmployeeList = () => {
@@ -10,11 +11,14 @@ const EmployeeList = () => {
     const [employees, setemployees] = useState(null);
    
    useEffect(() => {
-    const fetchdata = ()=>{
+    const fetchdata = async ()=>{
          setloading(true);   //set loading to true as at this moment we are loading the data
          try{
             //calling the api itself in the try block
-            const response = EmployeeService.getEmployees();
+            const response = await EmployeeService.getEmployees();
+            //to get the data from the api it may take some time. so we need to wait until we get the data
+            //so we Use the "await" & ** must include the "async" to the funcion itselt as 'await' expressions are only allowed within async functions and at the top levels of modules.
+            setemployees(response.data) //setting the response to the state(useState) and passing the whatever data 
 
          }
          catch(error){
@@ -50,17 +54,13 @@ const EmployeeList = () => {
                     <th className='text-right px-2 py-2'>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr className='text-left font-semibold text-gray-500 text-sm px-2 py-2 whitespace-nowrap'>
-                <td>Yasiru</td>
-                <td>Basura</td>
-                <td>yasirukanakkahewa@gmail.com</td>
-                <td className='font-semibold text-right px-3 py-2'>
-                    <a href='#' className='text-indigo-600 hover:text-indigo-800 px-4'>Edit</a>
-                    <a href='#'className='text-indigo-600 hover:text-indigo-800 px-4'>Delete</a>
-                    </td>
-                </tr>
+            {!loading &&(           //looping through the list(if not loading is completed as loading is false when completed) //we use the <tr key={employee.id} as each child list should have a unique id itself(otherwise there will be an eror in the console)
+            <tbody>                 
+                {employees.map((employee)=>(   //map all the employees and get the employee object from it
+                    <Employee employee={employee}></Employee>           //here the Employee is the child component.so inside this child component we need the 'employee' data. so we take the 'employee' data as the name(property) "employee"
+                ))}
             </tbody>
+            )}
 
 
         </table>
