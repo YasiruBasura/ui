@@ -30,7 +30,7 @@ const EmployeeList = () => {
 //above is the declaration of the function "fetchdata"
     fetchdata(); //calling of the function
 
-   } , []);
+   } , []);  //here we pass an empty array to the useEffect hook so it will be triggered only once.(when the component is mounted)
    
 const deleteEmployee=(e,id)=>{
     e.preventDefault();

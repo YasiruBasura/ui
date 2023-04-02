@@ -15,13 +15,15 @@ const [employee, setEmployee] = useState({
 const navigate=useNavigate();
 
 const handleChange=(e) =>{
-  const value=e.target.value; //the value which are getting
-  setEmployee({...employee,[e.target.name]:value});   //form this the update in your input field the same will be updated to the state as well.
+  const value=e.target.value; //the value which are getting on each handlechange event(when the input field changes)
+  setEmployee({...employee,[e.target.name]:value});   //from this the update in your input field the same will be updated to the state as well.
+  //here [e.target.name] will give what is the input field(firstname or lastname) and it will be assigned to the "value"
+  //then this whole [e.target.name]:value thing will combine with the existing values ...employee
 }
 
 const saveEmployee=(e) =>{ //this function is nothing but taking the event as input parameter
   e.preventDefault();       //this will disable the refreshing of the page
-  EmployeeService.saveEmployee(employee).then((response) =>{
+  EmployeeService.saveEmployees(employee).then((response) =>{ //this employee object is nothing but the state
       console.log(response);
       navigate("/employeeList"); //we have defined this /employeeList in our router in app.js
 
