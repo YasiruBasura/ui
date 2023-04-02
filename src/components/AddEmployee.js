@@ -57,7 +57,7 @@ const reset =(e)=>{
         </label>
       <input type="text"
       name='firstName'              //define the name of the tag
-      value={employee.firstName}   //define the value of the tag //state.firstName
+      value={employee.firstName}    //define the value of the tag //state.name //{} braces mean it is from react. "" means it is from Html
       onChange={(e)=>handleChange(e)}  //onchange of the input field here we are creating a method
       className="h-8 w-96 border mt-2 px-2 py-2">
       </input>
