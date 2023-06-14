@@ -67,7 +67,8 @@ const deleteEmployee=(e,id)=>{
             {!loading &&(           //looping through the list(if not loading is completed as loading is false when completed) //we use the <tr key={employee.id} as each child list should have a unique id itself(otherwise there will be an eror in the console)
             <tbody>                 
                 {employees.map((employee)=>(   //map all the employees and get the employee object from it
-                    <Employee employee={employee} deleteEmployee={deleteEmployee} key={employee.id}></Employee> //here the Employee is the child component.so inside this child component we need the 'employee' data. so we take the 'employee' data as the name(property) "employee"
+                    <Employee employee={employee} deleteEmployee={deleteEmployee} key={employee.id}></Employee> //here the Employee is the child component.so inside 
+                    //this child component we need the 'employee' data. so we take the 'employee' data as the name(property) "employee"
                 ))}
             </tbody>
             )}
